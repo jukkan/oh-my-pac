@@ -4,6 +4,8 @@ Show the active Microsoft Power Platform CLI auth context in an `oh-my-posh` pro
 
 This repo provides a small PowerShell helper, a ready-made `oh-my-posh` theme, and an installer that wires the setup into a user's PowerShell 7 profile.
 
+<img width="1084" height="641" alt="image" src="https://github.com/user-attachments/assets/21f9fb57-f9e0-4792-bbb3-c139945294d2" />
+
 ## What It Shows
 
 The prompt adds a dedicated Power Apps-style segment that displays the active PAC auth context, using:
