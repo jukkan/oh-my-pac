@@ -1,0 +1,81 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#262B44",
+          "background": "#F3AE35",
+          "template": " {{ if .SSHSession }} {{ end }}{{ .UserName }} "
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#E0DEF4",
+          "background": "#F07623",
+          "template": "  {{ path .Path .Location }} "
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#262B44",
+          "background": "#59C9A5",
+          "template": " {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "branch_icon": " ",
+            "branch_max_length": 25,
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#F7F1FF",
+          "background": "#742774",
+          "template": "{{ if env \"PAC_CONTEXT\" }}  {{ env \"PAC_CONTEXT\" }} {{ end }}"
+        },
+        {
+          "type": "status",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "foreground": "#E0DEF4",
+          "background": "#4B95E9",
+          "template": " {{ if gt .Code 0 }}{{ else }}{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "type": "shell",
+          "style": "plain",
+          "foreground": "#E0DEF4",
+          "template": "in <b>{{ .Name }}</b> "
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "#E0DEF4",
+          "template": "at <b>{{ .CurrentDate | date \"15:04:05\" }}</b>"
+        }
+      ]
+    }
+  ]
+}
